@@ -7,7 +7,7 @@ const { getStreamFromURL, shortenURL, randomString } = global.utils;
 
 function loadAutoLinkStates() {
   try {
-    const data = fs.readFileSync("ArYan.json", "utf8");
+    const data = fs.readFileSync("autolink.json", "utf8");
     return JSON.parse(data);
   } catch (err) {
 
@@ -17,7 +17,7 @@ function loadAutoLinkStates() {
 
 
 function saveAutoLinkStates(states) {
-  fs.writeFileSync("ArYan.json", JSON.stringify(states, null, 2));
+  fs.writeFileSync("autolink.json", JSON.stringify(states, null, 2));
 }
 
 
@@ -50,11 +50,11 @@ module.exports = {
       this.threadStates[threadID] = {};
     }
 
-    if (event.body.toLowerCase().includes('a off')) {
+    if (event.body.toLowerCase().includes('autolink off')) {
       autoLinkStates[threadID] = 'off';
       saveAutoLinkStates(autoLinkStates);
       api.sendMessage("AutoLink is now turned off for this chat.", event.threadID, event.messageID);
-    } else if (event.body.toLowerCase().includes('a on')) {
+    } else if (event.body.toLowerCase().includes('autolink on')) {
       autoLinkStates[threadID] = 'on';
       saveAutoLinkStates(autoLinkStates);
       api.sendMessage("AutoLink is now turned on for this chat.", event.threadID, event.messageID);
@@ -71,7 +71,7 @@ module.exports = {
       } else {
         api.sendMessage("", event.threadID, event.messageID);
       }
-      api.setMessageReaction("🎲", event.messageID, (err) => {}, true);
+      api.setMessageReaction("⏰", event.messageID, (err) => {}, true);
     }
   },
   downLoad: function (url, api, event) {
@@ -106,7 +106,7 @@ module.exports = {
       }
 
       const shortUrl = await shortenURL(res);
-      const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+      const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
       api.sendMessage({
         body: messageBody,
@@ -132,7 +132,7 @@ module.exports = {
         response.data.pipe(fs.createWriteStream(path));
         response.data.on('end', async () => {
           const shortUrl = await shortenURL(videoUrl);
-          const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+          const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
           api.sendMessage({
             body: messageBody,
@@ -160,7 +160,7 @@ module.exports = {
       }
 
       const shortUrl = await shortenURL(res);
-      const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+      const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
       api.sendMessage({
         body: messageBody,
@@ -188,7 +188,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+        const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -217,7 +217,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+        const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -246,7 +246,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+        const messageBody = `╭─────❃\n│𝙈𝙖𝙭-𝙍𝙖𝙢𝙗𝙤-𝘽𝙤𝙩𝟯𝟮𝟬 🩷🪽\n ╰────────────✦\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -295,14 +295,14 @@ module.exports = {
   queryTikTok: async function (url) {
     try {
       const res = await axios.get("https://ssstik.io/en");
-      const ArYan_tt = res.data.split('ArYan_tt = ')[1].split(',')[0];
+      const s_tt = res.data.split('s_tt = ')[1].split(',')[0];
       const { data: result } = await axios({
         url: "https://ssstik.io/abc?url=dl",
         method: "POST",
         data: qs.stringify({
           id: url,
           locale: 'en',
-          tt: ArYan_tt
+          tt: s_tt
         }),
         headers: {
           "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33"
@@ -429,4 +429,4 @@ async function fbDownloader(url) {
       success: false
     };
   }
-  }
+          }
